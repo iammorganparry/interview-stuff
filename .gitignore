@@ -1,1 +1,21 @@
-node_modules/
+# Dependency directories
+/node_modules
+/.pnp
+.pnp.js
+
+# Output directories
+/dist
+/lib
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript files
+*.tsbuildinfo
+
+# Other files
+.DS_Store
+Thumbs.db
