@@ -21,7 +21,7 @@ describe("checkNumberOfRobots", () => {
 
     it("should return a number on correct input", async () => {
         mockPrompt.mockReturnValueOnce("1");
-        expect(checkNumberOfRobots()).toBe("1");
+        expect(checkNumberOfRobots()).toBe(1);
     });
 
     it.todo("Should show a console message on incorrect input", () => {

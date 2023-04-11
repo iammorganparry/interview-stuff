@@ -1,5 +1,16 @@
 import { Orientation } from "./types";
 import { prompt } from './prompt';
+import figlet from "figlet";
+
+
+export const createHeading = () => {
+    console.log(figlet.textSync('Robot Simulator', {
+        font: 'Swamp Land',
+        horizontalLayout: 'default',
+        verticalLayout: 'default'
+    }));
+    console.log('At any time to exit the program use CTRL + C / CMD + C');
+}
 
 export const getStartingPositions = (startingPositionAndCommands: string) => {
     const positions = startingPositionAndCommands.trim().split(')')[0].replace('(', '').split(',');
@@ -108,7 +119,7 @@ export const checkStartingPositionsAndCommands = (i: number): CheckStartingPosit
 
 const NUMBER_OF_ROBOTS_TEXT = 'How many robots would you like to create? (ex: 2): ';
 
-export const checkNumberOfRobots = (): string => {
+export const checkNumberOfRobots = (): number => {
     let numberOfRobots = prompt(NUMBER_OF_ROBOTS_TEXT);
     if(!numberOfRobots) {
         console.log('Please enter a number for the number of robots');
@@ -120,5 +131,5 @@ export const checkNumberOfRobots = (): string => {
         return checkNumberOfRobots();
     }
 
-    return numberOfRobots;
+    return parseInt(numberOfRobots);
 }
