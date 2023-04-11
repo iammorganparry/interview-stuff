@@ -1,5 +1,7 @@
 # Running TypeScript Files with `ts-node`
 
+[![Test Coverage 🧙🏽‍♂️](https://github.com/iammorganparry/interview-stuff/actions/workflows/tests.yml/badge.svg)](https://github.com/iammorganparry/interview-stuff/actions/workflows/tests.yml)
+
 This guide will show you how to use `ts-node` to run TypeScript files using yarn.
 
 ## Prerequisites
