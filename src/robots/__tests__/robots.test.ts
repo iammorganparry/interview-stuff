@@ -1,19 +1,14 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
-import { Orientation, Robot } from './robots';
+import { Robot } from '../service';
+import { Orientation } from '../types';
 
 describe('Robot Challenge', () => {
-    vi.mock('prompt-sync', () => {
-        const Prompt = vi.fn()      
-        return Prompt
-      })
+  
     const consoleLog = vi.spyOn(console, 'log');
     afterEach(() => {
         vi.resetAllMocks()
     })
 
-    it('should handle an incorrect grid size', () => {
-        
-    });
 
     it("should output the correct location for a given Robot", () => {
         const startingPositions = {

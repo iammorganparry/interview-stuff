@@ -7,10 +7,15 @@
   "devDependencies": {
     "@types/figlet": "^1.5.5",
     "@types/prompt-sync": "^4.2.0",
+    "@vitest/coverage-istanbul": "^0.30.1",
     "@vitest/ui": "^0.30.0",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
     "vitest": "^0.30.0"
+  },
+  "scripts": {
+    "test-ci": "vitest run --coverage.enabled --coverage.reporter='text-summary'",
+    "test": "vitest run --coverage"
   },
   "dependencies": {
     "figlet": "^1.6.0",
