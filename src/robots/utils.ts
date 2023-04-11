@@ -2,7 +2,10 @@ import { Orientation } from "./types";
 import { prompt } from './prompt';
 import figlet from "figlet";
 
-
+/**
+ * @name createHeading
+ * Creates a heading for the program
+ */
 export const createHeading = () => {
     console.log(figlet.textSync('Robot Simulator', {
         font: 'Swamp Land',
@@ -12,6 +15,11 @@ export const createHeading = () => {
     console.log('At any time to exit the program use CTRL + C / CMD + C');
 }
 
+/**
+ * @name getStartingPositions
+ * @param startingPositionAndCommands string of the starting position and commands
+ * @returns an object with the starting positions and orientation
+ */
 export const getStartingPositions = (startingPositionAndCommands: string) => {
     const positions = startingPositionAndCommands.trim().split(')')[0].replace('(', '').split(',');
     if (positions.length !== 3) {
@@ -30,6 +38,11 @@ export const getStartingPositions = (startingPositionAndCommands: string) => {
 
 }
 
+/**
+ * @name getCommands
+ * @param startingPositionAndCommands string of the starting position and commands
+ * @returns   an array of commands
+ */
 export const getCommands = (startingPositionAndCommands: string) => {
     const commands = startingPositionAndCommands.split(')')?.[1]?.trim()?.split('');
     if (!commands || commands?.length === 0) {
@@ -46,6 +59,10 @@ type CheckGridSizeReturn = {
     y: number;
 }
 
+/**
+ * @name checkGridSize
+ * @returns an object with the x and y grid size
+ */
 export const checkGridSize = (): CheckGridSizeReturn => {
 
     let gridSize = prompt(GRID_SIZE_TEXT);
@@ -78,6 +95,11 @@ type CheckStartingPositionsAndCommandsReturn = {
 
 const createRobotPositionText = (index: number) => `What is the starting position of robot ${index + 1}? ex: (2, 3, E) LFRFF: `;
 
+/**
+ * @name checkStartingPositionsAndCommands
+ * @param i number of the robot
+ * @returns an object with the starting positions and commands
+ */
 export const checkStartingPositionsAndCommands = (i: number): CheckStartingPositionsAndCommandsReturn => {
     let startingPositionAndCommands = prompt(createRobotPositionText(i));
 
@@ -114,6 +136,10 @@ export const checkStartingPositionsAndCommands = (i: number): CheckStartingPosit
 
 const NUMBER_OF_ROBOTS_TEXT = 'How many robots would you like to create? (ex: 2): ';
 
+/**
+ * @name checkNumberOfRobots
+ * @returns the number of robots
+ */
 export const checkNumberOfRobots = (): number => {
     let numberOfRobots = prompt(NUMBER_OF_ROBOTS_TEXT);
     if(!numberOfRobots) {

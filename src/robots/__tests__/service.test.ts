@@ -14,7 +14,7 @@ describe('Robot', () => {
         expect(robot.y).toBe(1);
     })
 
-    it('should move forward and turn right', () => {
+    it('Should end up in a Easternly direction', () => {
         const robot = new Robot(0, 0, 'N', 5, 5);
         robot.moveRobot(['F', 'R']);
         expect(robot.y).toBe(1);
@@ -22,11 +22,25 @@ describe('Robot', () => {
     })
 
 
-    it('should move forward and turn right and turn left', () => {
+    it('Should end up in a Northernly direction', () => {
         const robot = new Robot(0, 0, 'N', 5, 5);
-        robot.moveRobot(['F', 'R', 'L']);
+        robot.moveRobot(['F', 'R', 'L', ]);
         expect(robot.y).toBe(1);
         expect(robot.orientation).toBe('N');
+    })
+
+    it('Should end up in a westernly direction', () => {
+        const robot = new Robot(0, 0, 'N', 5, 5);
+        robot.moveRobot(['F', 'R', 'L', 'L']);
+        expect(robot.y).toBe(1);
+        expect(robot.orientation).toBe('W');
+    })
+
+    it('Should end up in a southernly direction', () => {
+        const robot = new Robot(0, 0, 'N', 5, 5);
+        robot.moveRobot(['F', 'R', 'L', 'L', 'L']);
+        expect(robot.y).toBe(1);
+        expect(robot.orientation).toBe('S');
     })
 
 
@@ -35,6 +49,7 @@ describe('Robot', () => {
         robot.moveRobot(['F']);
         expect(robot.lost).toBe(true);
     })
+
 
 
     it('Should not move if it falls off the grid Y', () => {

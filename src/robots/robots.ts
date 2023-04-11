@@ -1,5 +1,9 @@
 import { checkGridSize, checkNumberOfRobots, checkStartingPositionsAndCommands, createHeading } from './utils';
 import { Robot } from './service';
+/**
+ * @name main
+ * This is the main function of the application
+ */
 export const main = () => {
     // create ASCII art
     createHeading()
