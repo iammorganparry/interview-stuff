@@ -31,8 +31,8 @@ export const getStartingPositions = (startingPositionAndCommands: string) => {
 }
 
 export const getCommands = (startingPositionAndCommands: string) => {
-    const commands = startingPositionAndCommands.split(')')[1].trim().split('');
-    if (commands.length === 0) {
+    const commands = startingPositionAndCommands.split(')')?.[1]?.trim()?.split('');
+    if (!commands || commands?.length === 0) {
         return [];
     }
     return commands;
@@ -64,11 +64,6 @@ export const checkGridSize = (): CheckGridSizeReturn => {
 
     const x = parseInt(gridSize.split('x')[0].trim());
     const y = parseInt(gridSize.split('x')[1].trim());
-
-    // we need to check that the grid size is valid
-    if(isNaN(x) || isNaN(y)) {
-        console.log('Please enter a valid grid size');
-    }
 
     return {
         x,
