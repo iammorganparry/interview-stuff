@@ -9,10 +9,10 @@ export const main = () => {
     createHeading()
 
     // first we prompt the user for a size of the grid
-    let { x, y } = checkGridSize()
+    const { x, y } = checkGridSize()
         
     // ask for number of robots
-    let numberOfRobots = checkNumberOfRobots();
+    const numberOfRobots = checkNumberOfRobots();
 
     // for each robot we need to ask for the starting position and a list of commands
     for (let i = 0; i < numberOfRobots; i++) {

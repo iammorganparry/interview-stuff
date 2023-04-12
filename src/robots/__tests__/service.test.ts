@@ -14,34 +14,58 @@ describe('Robot', () => {
         expect(robot.y).toBe(1);
     })
 
-    it('Should end up in a Easternly direction', () => {
-        const robot = new Robot(0, 0, 'N', 5, 5);
-        robot.moveRobot(['F', 'R']);
-        expect(robot.y).toBe(1);
-        expect(robot.orientation).toBe('E');
-    })
+    describe('Orientation of Robot', () => {
+        it('should right from N', () => {
+            const robot = new Robot(0, 0, 'N', 5, 5);
+            robot.moveRobot(['R']);
+            expect(robot.orientation).toBe('E');  
+        });
+        
+        it('should turn right from E', () => {
+            const robot = new Robot(0, 0, 'E', 5, 5);
+            robot.moveRobot(['R']);
+            expect(robot.orientation).toBe('S');
+        });
+
+        it('should right from S', () => {
+            const robot = new Robot(0, 0, 'S', 5, 5);
+            robot.moveRobot(['R']);
+            expect(robot.orientation).toBe('W');  
+        });
+
+        it('should right from W', () => {
+            const robot = new Robot(0, 0, 'W', 5, 5);
+            robot.moveRobot(['R']);
+            expect(robot.orientation).toBe('N');
+        });
 
 
-    it('Should end up in a Northernly direction', () => {
-        const robot = new Robot(0, 0, 'N', 5, 5);
-        robot.moveRobot(['F', 'R', 'L', ]);
-        expect(robot.y).toBe(1);
-        expect(robot.orientation).toBe('N');
-    })
 
-    it('Should end up in a westernly direction', () => {
-        const robot = new Robot(0, 0, 'N', 5, 5);
-        robot.moveRobot(['F', 'R', 'L', 'L']);
-        expect(robot.y).toBe(1);
-        expect(robot.orientation).toBe('W');
-    })
+        it('should left from N', () => {
+            const robot = new Robot(0, 0, 'N', 5, 5);
+            robot.moveRobot(['L']);
+            expect(robot.orientation).toBe('W');  
+        })
 
-    it('Should end up in a southernly direction', () => {
-        const robot = new Robot(0, 0, 'N', 5, 5);
-        robot.moveRobot(['F', 'R', 'L', 'L', 'L']);
-        expect(robot.y).toBe(1);
-        expect(robot.orientation).toBe('S');
-    })
+        it('should left from E', () => {
+            const robot = new Robot(0, 0, 'E', 5, 5);
+            robot.moveRobot(['L']);
+            expect(robot.orientation).toBe('N');
+        });
+
+        it('should left from S', () => {
+            const robot = new Robot(0, 0, 'S', 5, 5);
+            robot.moveRobot(['L']);
+            expect(robot.orientation).toBe('E');  
+        })
+
+        it('should left from W', () => {
+            const robot = new Robot(0, 0, 'W', 5, 5);
+            robot.moveRobot(['L']);
+            expect(robot.orientation).toBe('S');
+        }
+        );
+    });
 
 
     it('Should mark itself as lost if it falls off the grid', () => {
