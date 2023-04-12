@@ -64,18 +64,18 @@ type CheckGridSizeReturn = {
  * @returns an object with the x and y grid size
  */
 export const checkGridSize = (): CheckGridSizeReturn => {
-
+    const LOG_TEXT = 'Please enter a valid grid size';
     let gridSize = prompt(GRID_SIZE_TEXT);
 
     if (!gridSize) {
-        console.log('Please enter a valid grid size');
+        console.log(LOG_TEXT);
         return checkGridSize();
     }
     const gridRegex = /^\d+\s*x\s*\d+$/;
     // we need the grid size to be a valid string of "X x Y"
     // so we need to check that the string is valid
     if(!gridRegex.test(gridSize)) {
-        console.log('Please enter a valid grid size');
+        console.log(LOG_TEXT);
         return checkGridSize();
     }
 
@@ -101,16 +101,17 @@ const createRobotPositionText = (index: number) => `What is the starting positio
  * @returns an object with the starting positions and commands
  */
 export const checkStartingPositionsAndCommands = (i: number): CheckStartingPositionsAndCommandsReturn => {
+    const LOG_TEXT = 'Please enter a valid starting position and commands for the robot';
     let startingPositionAndCommands = prompt(createRobotPositionText(i));
 
         if(!startingPositionAndCommands) {
-            console.log('Please enter a starting position and commands for the robot');
+            console.log(LOG_TEXT);
             return checkStartingPositionsAndCommands(i);
         }
         // we need to check that the starting position and commands are valid
         const pattern = /\(-?\d+, -?\d+, [NESW]\) [FRL]+/;
         if(!pattern.test(startingPositionAndCommands)) {
-            console.log('Please enter a valid starting position and commands for the robot');
+            console.log(LOG_TEXT);
             return checkStartingPositionsAndCommands(i);
         }
         // we need to parse the starting position and commands
@@ -124,7 +125,7 @@ export const checkStartingPositionsAndCommands = (i: number): CheckStartingPosit
             !startingPositions.orientation ||
             commands.length === 0
         ) {
-            console.log('Please enter a valid starting position and commands for the robot');
+            console.log(LOG_TEXT);
             return checkStartingPositionsAndCommands(i);
         }
 
@@ -141,14 +142,15 @@ const NUMBER_OF_ROBOTS_TEXT = 'How many robots would you like to create? (ex: 2)
  * @returns the number of robots
  */
 export const checkNumberOfRobots = (): number => {
+    const LOG_TEXT = 'Please enter a valid number of robots';
     let numberOfRobots = prompt(NUMBER_OF_ROBOTS_TEXT);
     if(!numberOfRobots) {
-        console.log('Please enter a number for the number of robots');
+        console.log(LOG_TEXT);
         return checkNumberOfRobots();
     }
     // handle if we cant parse the number of robots
     if(isNaN(parseInt(numberOfRobots))) {
-        console.log('Please enter a number for the number of robots');
+        console.log(LOG_TEXT);
         return checkNumberOfRobots();
     }
 

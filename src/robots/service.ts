@@ -42,6 +42,7 @@ export class Robot {
         console.log(`(${this.x}, ${this.y}, ${this.orientation})${this.lost ? ' LOST' : ''}`);
     }
     /**
+     * @name _moveForward
      * Moves the robot forward one space
      */
     private _moveForward() {
@@ -57,6 +58,10 @@ export class Robot {
         }
     }
 
+    /**
+     * @name _checkIfCollision
+     * @returns true if the robot has collided with the edge of the grid
+     */
     private _checkIfCollision() {
         // it has collided once the robot is out of bounds
         if (this.x > this.maxGridX || this.x < 0 || this.y > this.maxGridY || this.y < 0) {
@@ -65,6 +70,7 @@ export class Robot {
         }
     }
     /**
+     * @name _setCollisionPosition
      * Sets the robot's collision position based on the current value or X and Y
      */
     private _setCollisionPosition() {
@@ -75,6 +81,7 @@ export class Robot {
     }
 
     /**
+     * @name _turnRight
      * Turns the robot right
      */
     private _turnRight() {
@@ -89,6 +96,7 @@ export class Robot {
         }
     }
     /**
+     * @name _turnLeft
      * Turns the robot left
      */
     private _turnLeft() {
