@@ -1,6 +1,8 @@
-import { describe, it, expect, vi, afterEach } from 'vitest'
+import { describe, it, expect, vi, afterEach, MockedFunction, beforeEach } from 'vitest'
 import { Robot } from '../service';
 import { Orientation } from '../types';
+import { prompt } from '../prompt';
+import { main } from '../robots';
 
 describe('Robot Challenge', () => {
   

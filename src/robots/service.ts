@@ -48,13 +48,13 @@ export class Robot {
     private _moveForward() {
 
         if (this.orientation === 'N') {
-            this.y = this.y > this.maxGridY ? this.maxGridY : this.y + 1;
+            this.y = this.y + 1;
         } else if (this.orientation === 'E') {
-            this.x = this.x > this.maxGridX ? this.maxGridX : this.x + 1;
+            this.x = this.x + 1;
         } else if (this.orientation === 'S') {
-            this.y = this.y < 0 ? 0 : this.y - 1;
+            this.y = this.y - 1;
         } else if (this.orientation === 'W') {
-            this.x = this.x < 0 ? 0 : this.x - 1;
+            this.x = this.x - 1;
         }
     }
 
